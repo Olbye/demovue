@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { getUser } from "@/api/user";
+import { getUsers } from "@/api/user";
 export default {
   name: "User",
   data: function() {
@@ -36,8 +36,7 @@ export default {
   },
   methods: {
     getUsers() {
-      getUser().then(res => {
-        debugger;
+      getUsers().then(res => {
         this.users = res;
       });
     }

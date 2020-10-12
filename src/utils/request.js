@@ -87,11 +87,60 @@ service.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-export function get(url, params = {}) {
+// 4.请求
+export function getRequest(url, params = {}) {
   return new Promise((resolve, reject) => {
     service({
       url: `${url}`,
       method: "get",
+      params: params
+    })
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+}
+
+export function postRequest(url, params = {}) {
+  return new Promise((resolve, reject) => {
+    service({
+      url: `${url}`,
+      method: "post",
+      params: params
+    })
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+}
+
+export function deleteRequest(url, params = {}) {
+  return new Promise((resolve, reject) => {
+    service({
+      url: `${url}`,
+      method: "delete",
+      params: params
+    })
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+}
+
+export function putRequest(url, params = {}) {
+  return new Promise((resolve, reject) => {
+    service({
+      url: `${url}`,
+      method: "put",
       params: params
     })
       .then(res => {
